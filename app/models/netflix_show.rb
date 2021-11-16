@@ -6,8 +6,13 @@ class NetflixShow < ApplicationRecord
 
    def as_json(options={})
       super(options)
-      time = Time.parse(self.date_added)
-      time_convert = time.strftime("%Y-%d-%m")
+      if self.date_added
+         time = Time.parse(self.date_added)
+         time_convert = time.strftime("%Y-%d-%m")
+      else 
+         time = self.date_added
+      end
+      
       {
          id: self.id,
          title: self.title,
