@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  show_id: MyString
+  title: MyString
+  director: MyString
+  cast: MyString
+  country: MyString
+  date_added: MyString
+  release_year: MyString
+  rating: MyString
+  duration: MyString
+  listed_in: MyString
+  description: MyText
+
+two:
+  show_id: MyString
+  title: MyString
+  director: MyString
+  cast: MyString
+  country: MyString
+  date_added: MyString
+  release_year: MyString
+  rating: MyString
+  duration: MyString
+  listed_in: MyString
+  description: MyText
