@@ -52,7 +52,7 @@ class NetflixShowsController < ApplicationController
   end
 
   def data_params
-    params.require(:data).permit(:title, :show_type, :release_year, :country, :date_added, :description)
+    params.permit(:title, :show_type, :release_year, :country, :date_added, :description)
   end
 
   # Lista com os nomes dos params que serão filtrados
