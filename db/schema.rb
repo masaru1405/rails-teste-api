@@ -10,23 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_162442) do
-
-  create_table "netflix_shows", force: :cascade do |t|
-    t.string "show_id"
-    t.string "show_type"
-    t.string "title"
-    t.string "director"
-    t.string "cast"
-    t.string "country"
-    t.string "date_added"
-    t.string "release_year"
-    t.string "rating"
-    t.string "duration"
-    t.string "listed_in"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+ActiveRecord::Schema.define(version: 20_211_115_162_442) do
+  create_table 'netflix_shows', force: :cascade do |t|
+    t.string 'show_id'
+    t.string 'show_type'
+    t.string 'title'
+    t.string 'director'
+    t.string 'cast'
+    t.string 'country'
+    t.string 'date_added'
+    t.string 'release_year'
+    t.string 'rating'
+    t.string 'duration'
+    t.string 'listed_in'
+    t.text 'description'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
-
 end
