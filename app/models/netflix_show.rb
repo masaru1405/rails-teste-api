@@ -3,12 +3,14 @@
 require 'time'
 
 class NetflixShow < ApplicationRecord
+  #Evita o cadastro de dados duplicados baseado no atributo 'title'
   validates :title, uniqueness: true
 
   scope :filter_by_country, ->(country) { where country: country }
   scope :filter_by_genre, ->(genre) { where show_type: genre }
   scope :filter_by_year, ->(year) { where release_year: year }
 
+  #Faz o parse do atributo 'date_added', se este atributo existir
   def as_json(options = {})
     super(options)
     if date_added

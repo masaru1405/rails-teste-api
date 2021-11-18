@@ -74,7 +74,7 @@ RSpec.describe 'NetflixShow', type: :request do
   #POST
   describe 'POST /netflix_shows' do
     #valid payload
-    context 'when the request is valid' do
+    context 'when the request is valid and have duplicate data' do
       let(:new_data) do
         {
           title: 'Turma da Monica',
@@ -87,10 +87,23 @@ RSpec.describe 'NetflixShow', type: :request do
       end
       
       #let(:params) {{title: 'Turma da Monica'}}
-      it 'return status code 201 created' do
-        post '/netflix_shows', params: new_data, as: :json
+      before {post '/netflix_shows', params: new_data, as: :json}
+      it 'return status code 201 created and 422 unprocessable_entity' do
         expect(response).to have_http_status(:created)
+
+        post '/netflix_shows', params: new_data, as: :json
+        expect(response).to have_http_status(:unprocessable_entity)
       end
+    end
+  end
+
+
+  #DELETE
+  describe 'DELETE /netflix_shows/:id' do
+    before {delete '/netflix_shows', params: {id: 1}}
+
+    it 'returns status code 204' do
+      expect(response).to have_http_status(:no_content)
     end
   end
 
